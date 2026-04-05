@@ -13,21 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fallback: hide preloader after 3s even if load event somehow missed
     setTimeout(() => preloader.classList.add('hidden'), 3000);
 
-    // ---- Hero Particles ----
-    const particlesContainer = document.getElementById('heroParticles');
-    if (particlesContainer) {
-        for (let i = 0; i < 30; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'hero-particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDuration = (Math.random() * 6 + 4) + 's';
-            particle.style.animationDelay = (Math.random() * 6) + 's';
-            particle.style.width = (Math.random() * 3 + 1) + 'px';
-            particle.style.height = particle.style.width;
-            particlesContainer.appendChild(particle);
-        }
-    }
-
     // ---- Sticky Header ----
     const header = document.getElementById('header');
     const scrollThreshold = 50;
@@ -86,10 +71,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function animateCounters() {
         if (countersStarted) return;
-        const heroStats = document.querySelector('.hero-stats');
-        if (!heroStats) return;
+        const statsSection = document.querySelector('.stats-grid');
+        if (!statsSection) return;
 
-        const rect = heroStats.getBoundingClientRect();
+        const rect = statsSection.getBoundingClientRect();
         if (rect.top < window.innerHeight && rect.bottom > 0) {
             countersStarted = true;
             statNumbers.forEach(el => {
@@ -113,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     animateCounters(); // check on load too
 
     // ---- Scroll Reveal (Service Cards & others) ----
-    const revealElements = document.querySelectorAll('.service-card, .why-card, .discount-card, .vet-feature');
+    const revealElements = document.querySelectorAll('.service-card, .why-card, .discount-card, .vet-feature, .stat-box, .photo-slot');
 
     function revealOnScroll() {
         revealElements.forEach(el => {
@@ -255,6 +240,21 @@ document.addEventListener('DOMContentLoaded', () => {
         // Clear error on input
         quoteForm.querySelectorAll('input, select, textarea').forEach(field => {
             field.addEventListener('input', () => field.classList.remove('error'));
+        });
+    }
+
+    // ---- Photos Load More ----
+    const loadMoreBtn = document.getElementById('loadMorePhotos');
+    const photosGrid = document.getElementById('photosGrid');
+    if (loadMoreBtn && photosGrid) {
+        loadMoreBtn.addEventListener('click', () => {
+            photosGrid.classList.toggle('expanded');
+            if (photosGrid.classList.contains('expanded')) {
+                loadMoreBtn.innerHTML = '<i class="fas fa-chevron-up"></i> Show Less';
+            } else {
+                loadMoreBtn.innerHTML = '<i class="fas fa-images"></i> Show All Photos';
+                photosGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         });
     }
 

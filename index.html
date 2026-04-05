@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Globeks Corp — Hot Shot Trucking | 48 States</title>
-    <meta name="description" content="Globeks Corp — reliable hot shot trucking on 40ft trailers across 48 states. Cars, boats, heavy equipment & more. Get a free quote today!">
+    <title>Globeks Corp - Hot Shot Trucking | 48 States</title>
+    <meta name="description" content="Globeks Corp - reliable hot shot trucking on 40ft trailers across 48 states. Cars, boats, heavy equipment and more. Get a free quote today!">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -34,6 +34,7 @@
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#photos">Photos</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#coverage">Coverage</a></li>
@@ -42,7 +43,7 @@
                     <li><a href="#testimonials">Reviews</a></li>
                     <li><a href="#faq">FAQ</a></li>
                 </ul>
-                <a href="#quote" class="nav-cta">Get a Quote</a>
+                <a href="#hero" class="nav-cta">Get a Quote</a>
                 <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
                     <span></span><span></span><span></span>
                 </button>
@@ -50,52 +51,118 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - Background Image + Quote Form -->
     <section id="hero" class="hero">
         <div class="hero-overlay"></div>
-        <div class="hero-particles" id="heroParticles"></div>
         <div class="hero-content">
-            <div class="hero-badge">
-                <i class="fas fa-shield-halved"></i>
-                Licensed & Insured — USDOT Certified
-            </div>
-            <h1>
-                <span class="hero-line">Hot Shot Delivery</span>
-                <span class="hero-line accent">Across 48 States</span>
-            </h1>
-            <p class="hero-subtitle">
-                Reliable 40ft trailer transport for cars, boats, equipment & oversized cargo. 
-                Fast pickup, real‑time tracking, competitive rates.
-            </p>
-            <div class="hero-buttons">
-                <a href="#quote" class="btn btn-primary btn-lg">
-                    <i class="fas fa-paper-plane"></i> Get Free Quote
-                </a>
-                <a href="tel:+18001234567" class="btn btn-outline btn-lg">
-                    <i class="fas fa-phone"></i> (800) 123‑4567
-                </a>
-            </div>
-            <div class="hero-stats">
-                <div class="stat">
-                    <span class="stat-number" data-target="2500">0</span>+
-                    <span class="stat-label">Loads Delivered</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number" data-target="48">0</span>
-                    <span class="stat-label">States Covered</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number" data-target="99">0</span>%
-                    <span class="stat-label">On‑Time Rate</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number" data-target="500">0</span>+
-                    <span class="stat-label">Happy Clients</span>
+            <div class="hero-quote-wrapper">
+                <h2 class="hero-form-title">Get a Free Quote</h2>
+                <p class="hero-form-subtitle">Fill out the form and we'll respond within 30 minutes</p>
+                <form id="quoteForm" class="hero-quote-form" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required placeholder="Full Name *">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required placeholder="Email *">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" required placeholder="Phone *">
+                        </div>
+                        <div class="form-group">
+                            <select id="loadType" name="loadType" required>
+                                <option value="">Load Type *</option>
+                                <option value="vehicle">Vehicle (Car/Truck/SUV)</option>
+                                <option value="boat">Boat / Watercraft</option>
+                                <option value="equipment">Heavy Equipment</option>
+                                <option value="furniture">Furniture / Large Items</option>
+                                <option value="palletized">Palletized Freight</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="pickup" name="pickup" required placeholder="Pickup Location (City, State) *">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="delivery" name="delivery" required placeholder="Delivery Location (City, State) *">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="date" id="pickupDate" name="pickupDate" placeholder="Pickup Date">
+                        </div>
+                        <div class="form-group">
+                            <select id="discount" name="discount">
+                                <option value="">Discount (optional)</option>
+                                <option value="military">Military / Veteran (10% off)</option>
+                                <option value="repeat">Repeat Customer (15% off)</option>
+                                <option value="referral">Referral ($100 off)</option>
+                                <option value="firstresponder">First Responder (10% off)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <textarea id="details" name="details" rows="3" placeholder="Describe your cargo, dimensions, weight..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-full">
+                        <i class="fas fa-paper-plane"></i> Submit Quote Request
+                    </button>
+                </form>
+                <div id="formSuccess" class="form-success" style="display:none;">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Quote Request Received!</h3>
+                    <p>Thank you! Our team will get back to you within 30 minutes.</p>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <i class="fas fa-chevron-down"></i>
+    </section>
+
+    <!-- Stats Banner -->
+    <section id="stats-banner" class="stats-banner">
+        <div class="container">
+            <div class="stats-banner-inner">
+                <div class="stats-text">
+                    <div class="hero-badge">
+                        <i class="fas fa-shield-halved"></i>
+                        Licensed &amp; Insured - USDOT Certified
+                    </div>
+                    <h2>
+                        <span class="hero-line">Hot Shot Delivery</span>
+                        <span class="hero-line accent">Across 48 States</span>
+                    </h2>
+                    <p>Reliable 40ft trailer transport for cars, boats, equipment &amp; oversized cargo. Fast pickup, real-time tracking, competitive rates.</p>
+                    <div class="hero-buttons">
+                        <a href="#hero" class="btn btn-primary btn-lg">
+                            <i class="fas fa-paper-plane"></i> Get Free Quote
+                        </a>
+                        <a href="tel:+17084463883" class="btn btn-outline-dark btn-lg">
+                            <i class="fas fa-phone"></i> (708) 446-3883
+                        </a>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="stat-number" data-target="2500">0</span>+
+                        <span class="stat-label">Loads Delivered</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number" data-target="48">0</span>
+                        <span class="stat-label">States Covered</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number" data-target="99">0</span>%
+                        <span class="stat-label">On-Time Rate</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number" data-target="500">0</span>+
+                        <span class="stat-label">Happy Clients</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -105,77 +172,135 @@
             <div class="section-header">
                 <span class="section-tag">What We Haul</span>
                 <h2>Our Services</h2>
-                <p>From single vehicles to heavy equipment — if it fits on a 40ft trailer, we'll deliver it safely and on time.</p>
+                <p>From single vehicles to heavy equipment - if it fits on a 40ft trailer, we'll deliver it safely and on time.</p>
             </div>
             <div class="services-grid">
                 <div class="service-card" data-aos="fade-up">
                     <div class="service-icon"><i class="fas fa-car"></i></div>
                     <h3>Vehicles</h3>
-                    <p>Cars, trucks, SUVs — single or multiple. Door‑to‑door auto transport with secure tie‑downs.</p>
+                    <p>Cars, trucks, SUVs - single or multiple. Door-to-door auto transport with secure tie-downs.</p>
                 </div>
                 <div class="service-card" data-aos="fade-up" data-delay="100">
                     <div class="service-icon"><i class="fas fa-ship"></i></div>
-                    <h3>Boats & Watercraft</h3>
-                    <p>Fishing boats, jet skis, pontoons — professional marine transport with custom cradles.</p>
+                    <h3>Boats &amp; Watercraft</h3>
+                    <p>Fishing boats, jet skis, pontoons - professional marine transport with custom cradles.</p>
                 </div>
                 <div class="service-card" data-aos="fade-up" data-delay="200">
                     <div class="service-icon"><i class="fas fa-tractor"></i></div>
                     <h3>Heavy Equipment</h3>
-                    <p>Skid steers, mini excavators, generators — industrial machinery moved with care.</p>
+                    <p>Skid steers, mini excavators, generators - industrial machinery moved with care.</p>
                 </div>
                 <div class="service-card" data-aos="fade-up" data-delay="300">
                     <div class="service-icon"><i class="fas fa-couch"></i></div>
                     <h3>Large Items</h3>
-                    <p>Furniture, building materials, palletized freight — anything that fits on our 40ft flatbed.</p>
+                    <p>Furniture, building materials, palletized freight - anything that fits on our 40ft flatbed.</p>
                 </div>
                 <div class="service-card" data-aos="fade-up" data-delay="400">
                     <div class="service-icon"><i class="fas fa-bolt"></i></div>
                     <h3>Expedited Loads</h3>
-                    <p>Time‑critical shipments with dedicated drivers — picked up fast, delivered faster.</p>
+                    <p>Time-critical shipments with dedicated drivers - picked up fast, delivered faster.</p>
                 </div>
                 <div class="service-card" data-aos="fade-up" data-delay="500">
                     <div class="service-icon"><i class="fas fa-box-open"></i></div>
                     <h3>Oversized Cargo</h3>
-                    <p>Non‑standard freight handled with the right permits, equipment, and expertise.</p>
+                    <p>Non-standard freight handled with the right permits, equipment, and expertise.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Photos Section -->
+    <section id="photos" class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Work</span>
+                <h2>Our Photos</h2>
+                <p>Real photos from our loads across the country.</p>
+            </div>
+            <div class="photos-grid" id="photosGrid">
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 1</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 2</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 3</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 4</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 5</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 6</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 7</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 8</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 9</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 10</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 11</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 12</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 13</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 14</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 15</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 16</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 17</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 18</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 19</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 20</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 21</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 22</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 23</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 24</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 25</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 26</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 27</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 28</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 29</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 30</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 31</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 32</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 33</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 34</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 35</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 36</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 37</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 38</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 39</span></div></div>
+                <div class="photo-slot"><div class="photo-placeholder"><i class="fas fa-image"></i><span>Photo 40</span></div></div>
+            </div>
+            <div class="photos-load-more">
+                <button class="btn btn-outline-dark" id="loadMorePhotos">
+                    <i class="fas fa-images"></i> Show All Photos
+                </button>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
-    <section id="about" class="section section-dark">
+    <section id="about" class="section">
         <div class="container">
             <div class="about-grid">
                 <div class="about-content">
                     <span class="section-tag">Who We Are</span>
                     <h2>About Globeks Corp</h2>
                     <p class="lead">
-                        We're a veteran‑friendly hot shot trucking company built on the values of 
+                        We're a veteran-friendly hot shot trucking company built on the values of
                         reliability, transparency, and hard work.
                     </p>
                     <p>
-                        Founded by drivers who know the road, Globeks Corp operates a modern fleet of 
-                        40‑foot gooseneck trailers paired with heavy‑duty trucks. We serve all 48 
-                        contiguous states with fast pickup times, real‑time GPS tracking, and 
-                        competitive pricing — no hidden fees, no surprises.
+                        Founded by drivers who know the road, Globeks Corp operates a modern fleet of
+                        40-foot gooseneck trailers paired with heavy-duty trucks. We serve all 48
+                        contiguous states with fast pickup times, real-time GPS tracking, and
+                        competitive pricing - no hidden fees, no surprises.
                     </p>
                     <p>
-                        Whether you need a single car moved from Texas to Florida or heavy 
-                        equipment delivered to a job site in Montana, our experienced team 
+                        Whether you need a single car moved from Texas to Florida or heavy
+                        equipment delivered to a job site in Montana, our experienced team
                         handles every load like it's our own.
                     </p>
                     <div class="about-features">
                         <div class="about-feature">
                             <i class="fas fa-check-circle"></i>
-                            <span>Fully Licensed & Insured</span>
+                            <span>Fully Licensed &amp; Insured</span>
                         </div>
                         <div class="about-feature">
                             <i class="fas fa-check-circle"></i>
-                            <span>USDOT & MC Certified</span>
+                            <span>USDOT &amp; MC Certified</span>
                         </div>
                         <div class="about-feature">
                             <i class="fas fa-check-circle"></i>
-                            <span>Real‑Time GPS Tracking</span>
+                            <span>Real-Time GPS Tracking</span>
                         </div>
                         <div class="about-feature">
                             <i class="fas fa-check-circle"></i>
@@ -187,10 +312,10 @@
                         </div>
                         <div class="about-feature">
                             <i class="fas fa-check-circle"></i>
-                            <span>Veteran Owned & Operated</span>
+                            <span>Veteran Owned &amp; Operated</span>
                         </div>
                     </div>
-                    <a href="#quote" class="btn btn-primary">
+                    <a href="#hero" class="btn btn-primary">
                         <i class="fas fa-paper-plane"></i> Request a Quote
                     </a>
                 </div>
@@ -211,23 +336,23 @@
     </section>
 
     <!-- Why Choose Us -->
-    <section class="section" id="why-us">
+    <section class="section section-dark" id="why-us">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Our Advantage</span>
                 <h2>Why Choose Globeks Corp?</h2>
-                <p>We go the extra mile — literally and figuratively — to make sure your freight arrives safe, on time, every time.</p>
+                <p>We go the extra mile - literally and figuratively - to make sure your freight arrives safe, on time, every time.</p>
             </div>
             <div class="why-grid">
                 <div class="why-card">
                     <div class="why-number">01</div>
                     <h3>Fast Pickup</h3>
-                    <p>Same‑day or next‑day pickup for most locations. No waiting around — we roll when you're ready.</p>
+                    <p>Same-day or next-day pickup for most locations. No waiting around - we roll when you're ready.</p>
                 </div>
                 <div class="why-card">
                     <div class="why-number">02</div>
                     <h3>Transparent Pricing</h3>
-                    <p>Flat‑rate quotes with no hidden fees. What we quote is what you pay — period.</p>
+                    <p>Flat-rate quotes with no hidden fees. What we quote is what you pay - period.</p>
                 </div>
                 <div class="why-card">
                     <div class="why-number">03</div>
@@ -244,12 +369,12 @@
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="section section-dark">
+    <section id="gallery" class="section">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Our Work</span>
                 <h2>Photo Gallery</h2>
-                <p>See our fleet in action — hauling vehicles, boats, equipment and more across America.</p>
+                <p>See our fleet in action - hauling vehicles, boats, equipment and more across America.</p>
             </div>
             <div class="gallery-filters">
                 <button class="filter-btn active" data-filter="all">All</button>
@@ -286,7 +411,7 @@
                 <div class="gallery-item" data-category="vehicles">
                     <div class="gallery-placeholder">
                         <i class="fas fa-car-side"></i>
-                        <span>Multi‑Car Load</span>
+                        <span>Multi-Car Load</span>
                     </div>
                 </div>
                 <div class="gallery-item" data-category="equipment">
@@ -312,12 +437,12 @@
     </section>
 
     <!-- Coverage Section -->
-    <section id="coverage" class="section">
+    <section id="coverage" class="section section-dark">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Where We Operate</span>
                 <h2>Nationwide Coverage</h2>
-                <p>From coast to coast, border to border — we serve all 48 contiguous United States.</p>
+                <p>From coast to coast, border to border - we serve all 48 contiguous United States.</p>
             </div>
             <div class="coverage-content">
                 <div class="map-container">
@@ -343,24 +468,24 @@
                         <h3><i class="fas fa-clock"></i> Estimated Transit Times</h3>
                         <div class="transit-times">
                             <div class="transit-item">
-                                <span>0–500 mi</span>
+                                <span>0-500 mi</span>
                                 <div class="transit-bar"><div class="bar" style="width:25%"></div></div>
-                                <span>1–2 days</span>
+                                <span>1-2 days</span>
                             </div>
                             <div class="transit-item">
-                                <span>500–1000 mi</span>
+                                <span>500-1000 mi</span>
                                 <div class="transit-bar"><div class="bar" style="width:50%"></div></div>
-                                <span>2–3 days</span>
+                                <span>2-3 days</span>
                             </div>
                             <div class="transit-item">
-                                <span>1000–2000 mi</span>
+                                <span>1000-2000 mi</span>
                                 <div class="transit-bar"><div class="bar" style="width:75%"></div></div>
-                                <span>3–5 days</span>
+                                <span>3-5 days</span>
                             </div>
                             <div class="transit-item">
                                 <span>2000+ mi</span>
                                 <div class="transit-bar"><div class="bar" style="width:100%"></div></div>
-                                <span>5–7 days</span>
+                                <span>5-7 days</span>
                             </div>
                         </div>
                     </div>
@@ -380,27 +505,27 @@
                 <span class="section-tag light">Honoring Our Heroes</span>
                 <h2>We Support Veterans</h2>
                 <p class="lead">
-                    At Globeks Corp, we're proud to support those who served our country. 
+                    At Globeks Corp, we're proud to support those who served our country.
                     Veterans and active military receive exclusive discounts on every shipment.
                 </p>
                 <div class="veterans-features">
                     <div class="vet-feature">
                         <i class="fas fa-tags"></i>
                         <h4>10% Military Discount</h4>
-                        <p>All active‑duty service members and veterans receive 10% off every load.</p>
+                        <p>All active-duty service members and veterans receive 10% off every load.</p>
                     </div>
                     <div class="vet-feature">
                         <i class="fas fa-hands-helping"></i>
                         <h4>PCS Relocation Help</h4>
-                        <p>Special rates for Permanent Change of Station vehicle & equipment moves.</p>
+                        <p>Special rates for Permanent Change of Station vehicle &amp; equipment moves.</p>
                     </div>
                     <div class="vet-feature">
                         <i class="fas fa-handshake"></i>
                         <h4>Veteran Employment</h4>
-                        <p>We actively hire veterans and military spouses — join the Globeks team.</p>
+                        <p>We actively hire veterans and military spouses - join the Globeks team.</p>
                     </div>
                 </div>
-                <a href="#quote" class="btn btn-white btn-lg">
+                <a href="#hero" class="btn btn-white btn-lg">
                     <i class="fas fa-star"></i> Get Your Military Discount
                 </a>
             </div>
@@ -412,7 +537,7 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Save More</span>
-                <h2>Discounts & Deals</h2>
+                <h2>Discounts &amp; Deals</h2>
                 <p>Multiple ways to save on your next shipment.</p>
             </div>
             <div class="discounts-grid">
@@ -421,25 +546,25 @@
                     <div class="discount-percent">10%</div>
                     <h3>Military / Veteran</h3>
                     <p>Active duty, reserves, and veterans with valid ID.</p>
-                    <a href="#quote" class="btn btn-primary">Claim Discount</a>
+                    <a href="#hero" class="btn btn-primary">Claim Discount</a>
                 </div>
                 <div class="discount-card">
                     <div class="discount-percent">15%</div>
                     <h3>Repeat Customer</h3>
                     <p>Book your 3rd load and save 15% automatically.</p>
-                    <a href="#quote" class="btn btn-outline-dark">Claim Discount</a>
+                    <a href="#hero" class="btn btn-outline-dark">Claim Discount</a>
                 </div>
                 <div class="discount-card">
                     <div class="discount-percent">$100</div>
                     <h3>Referral Bonus</h3>
-                    <p>Refer a friend — you both get $100 off your next shipment.</p>
-                    <a href="#quote" class="btn btn-outline-dark">Refer Now</a>
+                    <p>Refer a friend - you both get $100 off your next shipment.</p>
+                    <a href="#hero" class="btn btn-outline-dark">Refer Now</a>
                 </div>
                 <div class="discount-card">
                     <div class="discount-percent">10%</div>
                     <h3>First Responder</h3>
-                    <p>Police, firefighters, and EMTs — thank you for your service.</p>
-                    <a href="#quote" class="btn btn-outline-dark">Claim Discount</a>
+                    <p>Police, firefighters, and EMTs - thank you for your service.</p>
+                    <a href="#hero" class="btn btn-outline-dark">Claim Discount</a>
                 </div>
             </div>
         </div>
@@ -451,7 +576,7 @@
             <div class="section-header">
                 <span class="section-tag">Reviews</span>
                 <h2>What Our Customers Say</h2>
-                <p>Don't just take our word for it — hear from our satisfied clients.</p>
+                <p>Don't just take our word for it - hear from our satisfied clients.</p>
             </div>
             <div class="testimonials-slider">
                 <div class="testimonials-track" id="testimonialsTrack">
@@ -485,7 +610,7 @@
                         <div class="stars">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
-                        <p>"Needed a skid steer moved ASAP for a job site. Globeks picked it up same day and had it there next morning. These guys deliver — literally."</p>
+                        <p>"Needed a skid steer moved ASAP for a job site. Globeks picked it up same day and had it there next morning. These guys deliver - literally."</p>
                         <div class="testimonial-author">
                             <div class="author-avatar"><i class="fas fa-user"></i></div>
                             <div>
@@ -498,7 +623,7 @@
                         <div class="stars">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
-                        <p>"I've used multiple hot shot companies over the years. Globeks Corp is hands‑down the most reliable and professional. They've earned a customer for life."</p>
+                        <p>"I've used multiple hot shot companies over the years. Globeks Corp is hands-down the most reliable and professional. They've earned a customer for life."</p>
                         <div class="testimonial-author">
                             <div class="author-avatar"><i class="fas fa-user"></i></div>
                             <div>
@@ -532,7 +657,7 @@
                         <i class="fas fa-plus"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Hot shot trucking is a type of expedited freight hauling using medium‑duty trucks with flatbed trailers (typically 40ft). It's faster and more flexible than traditional LTL or full truckload shipping — ideal for time‑sensitive or smaller loads.</p>
+                        <p>Hot shot trucking is a type of expedited freight hauling using medium-duty trucks with flatbed trailers (typically 40ft). It's faster and more flexible than traditional LTL or full truckload shipping - ideal for time-sensitive or smaller loads.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -541,7 +666,7 @@
                         <i class="fas fa-plus"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Cars, trucks, SUVs, boats, jet skis, ATVs, skid steers, mini excavators, generators, building materials, palletized cargo, furniture, and almost any freight that fits within our 40ft × 8.5ft deck with 10,000+ lb capacity.</p>
+                        <p>Cars, trucks, SUVs, boats, jet skis, ATVs, skid steers, mini excavators, generators, building materials, palletized cargo, furniture, and almost any freight that fits within our 40ft x 8.5ft deck with 10,000+ lb capacity.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -550,7 +675,7 @@
                         <i class="fas fa-plus"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>In most cases, we can arrange same‑day or next‑day pickup. Expedited loads can be picked up within hours depending on your location and driver availability.</p>
+                        <p>In most cases, we can arrange same-day or next-day pickup. Expedited loads can be picked up within hours depending on your location and driver availability.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -568,7 +693,7 @@
                         <i class="fas fa-plus"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Pricing is based on distance, load weight, dimensions, and pickup urgency. We provide transparent flat‑rate quotes with no hidden fees. Request a free quote above and we'll get back to you within 30 minutes.</p>
+                        <p>Pricing is based on distance, load weight, dimensions, and pickup urgency. We provide transparent flat-rate quotes with no hidden fees. Request a free quote above and we'll get back to you within 30 minutes.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -584,87 +709,6 @@
         </div>
     </section>
 
-    <!-- Quote Section -->
-    <section id="quote" class="section section-dark">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Free Estimate</span>
-                <h2>Get a Quote</h2>
-                <p>Fill out the form below and we'll respond within 30 minutes during business hours.</p>
-            </div>
-            <div class="quote-container">
-                <form id="quoteForm" class="quote-form" novalidate>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name"><i class="fas fa-user"></i> Full Name *</label>
-                            <input type="text" id="name" name="name" required placeholder="John Smith">
-                        </div>
-                        <div class="form-group">
-                            <label for="email"><i class="fas fa-envelope"></i> Email *</label>
-                            <input type="email" id="email" name="email" required placeholder="john@example.com">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="phone"><i class="fas fa-phone"></i> Phone *</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="(555) 123‑4567">
-                        </div>
-                        <div class="form-group">
-                            <label for="loadType"><i class="fas fa-box"></i> Load Type *</label>
-                            <select id="loadType" name="loadType" required>
-                                <option value="">Select load type…</option>
-                                <option value="vehicle">Vehicle (Car/Truck/SUV)</option>
-                                <option value="boat">Boat / Watercraft</option>
-                                <option value="equipment">Heavy Equipment</option>
-                                <option value="furniture">Furniture / Large Items</option>
-                                <option value="palletized">Palletized Freight</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="pickup"><i class="fas fa-map-marker-alt"></i> Pickup Location *</label>
-                            <input type="text" id="pickup" name="pickup" required placeholder="City, State or ZIP">
-                        </div>
-                        <div class="form-group">
-                            <label for="delivery"><i class="fas fa-flag-checkered"></i> Delivery Location *</label>
-                            <input type="text" id="delivery" name="delivery" required placeholder="City, State or ZIP">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="pickupDate"><i class="fas fa-calendar"></i> Preferred Pickup Date</label>
-                            <input type="date" id="pickupDate" name="pickupDate">
-                        </div>
-                        <div class="form-group">
-                            <label for="discount"><i class="fas fa-tags"></i> Discount</label>
-                            <select id="discount" name="discount">
-                                <option value="">No discount</option>
-                                <option value="military">Military / Veteran (10% off)</option>
-                                <option value="repeat">Repeat Customer (15% off)</option>
-                                <option value="referral">Referral ($100 off)</option>
-                                <option value="firstresponder">First Responder (10% off)</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group full-width">
-                        <label for="details"><i class="fas fa-comment"></i> Additional Details</label>
-                        <textarea id="details" name="details" rows="4" placeholder="Describe your cargo, dimensions, weight, special requirements…"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-lg btn-full">
-                        <i class="fas fa-paper-plane"></i> Submit Quote Request
-                    </button>
-                </form>
-                <div id="formSuccess" class="form-success" style="display:none;">
-                    <i class="fas fa-check-circle"></i>
-                    <h3>Quote Request Received!</h3>
-                    <p>Thank you! Our team will get back to you within 30 minutes during business hours.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Bar -->
     <section class="contact-bar">
         <div class="container">
@@ -673,14 +717,14 @@
                     <i class="fas fa-phone"></i>
                     <div>
                         <strong>Call Us</strong>
-                        <a href="tel:+18001234567">(800) 123‑4567</a>
+                        <a href="tel:+17084463883">(708) 446-3883</a>
                     </div>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
                     <div>
                         <strong>Email Us</strong>
-                        <a href="mailto:dispatch@globekscorp.com">dispatch@globekscorp.com</a>
+                        <a href="mailto:info@globeks.com">info@globeks.com</a>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -694,7 +738,7 @@
                     <i class="fas fa-map-pin"></i>
                     <div>
                         <strong>Headquarters</strong>
-                        <span>Houston, TX</span>
+                        <span>101 E Milwaukee St, Ste 411, Janesville, WI 53545</span>
                     </div>
                 </div>
             </div>
@@ -710,7 +754,7 @@
                         <i class="fas fa-truck-moving"></i>
                         <span>GLOBEKS<strong>CORP</strong></span>
                     </div>
-                    <p>Reliable hot shot trucking across 48 states. Cars, boats, equipment & more — delivered safely and on time.</p>
+                    <p>Reliable hot shot trucking across 48 states. Cars, boats, equipment &amp; more - delivered safely and on time.</p>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -726,7 +770,7 @@
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#gallery">Gallery</a></li>
                         <li><a href="#coverage">Coverage</a></li>
-                        <li><a href="#quote">Get a Quote</a></li>
+                        <li><a href="#hero">Get a Quote</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -742,9 +786,9 @@
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <ul>
-                        <li><i class="fas fa-phone"></i> (800) 123‑4567</li>
-                        <li><i class="fas fa-envelope"></i> dispatch@globekscorp.com</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Houston, TX</li>
+                        <li><i class="fas fa-phone"></i> (708) 446-3883</li>
+                        <li><i class="fas fa-envelope"></i> info@globeks.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 101 E Milwaukee St, Ste 411<br>Janesville, WI 53545</li>
                     </ul>
                 </div>
             </div>
