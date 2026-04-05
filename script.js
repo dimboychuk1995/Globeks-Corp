@@ -200,15 +200,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ---- Quote Form ----
     const quoteForm = document.getElementById('quoteForm');
+    const formError = document.getElementById('formError');
     const formSuccess = document.getElementById('formSuccess');
 
     if (quoteForm) {
-        quoteForm.addEventListener('submit', (e) => {
+        const submitButton = quoteForm.querySelector('button[type="submit"]');
+        const submitButtonHtml = submitButton ? submitButton.innerHTML : '';
+
+        quoteForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
             // Simple validation
             let isValid = true;
             const requiredFields = quoteForm.querySelectorAll('[required]');
+
+            if (formError) {
+                formError.style.display = 'none';
+            }
 
             requiredFields.forEach(field => {
                 field.classList.remove('error');
@@ -228,18 +236,55 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            if (isValid) {
+            if (!isValid) {
+                return;
+            }
+
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            }
+
+            try {
+                const response = await fetch(quoteForm.action, {
+                    method: quoteForm.method,
+                    body: new FormData(quoteForm),
+                    headers: {
+                        Accept: 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Form submission failed');
+                }
+
+                quoteForm.reset();
                 quoteForm.style.display = 'none';
                 formSuccess.style.display = 'block';
 
                 // Scroll to success message
                 formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } catch (error) {
+                if (formError) {
+                    formError.style.display = 'block';
+                    formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            } finally {
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = submitButtonHtml;
+                }
             }
         });
 
         // Clear error on input
         quoteForm.querySelectorAll('input, select, textarea').forEach(field => {
-            field.addEventListener('input', () => field.classList.remove('error'));
+            field.addEventListener('input', () => {
+                field.classList.remove('error');
+                if (formError) {
+                    formError.style.display = 'none';
+                }
+            });
         });
     }
 

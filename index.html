@@ -56,10 +56,15 @@
     <section id="hero" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
+            <div class="hero-copy">
+                <span class="hero-copy-tag">Direct Carrier Pricing</span>
+                <h1 class="hero-copy-title">WORKING DIRECTLY WITH THE CARRIER IS MORE PROFITABLE THAN GOING THROUGH A BROKER</h1>
+                <p class="hero-copy-text">No broker markup, no middleman delays, and direct communication with the team that actually moves your load. You get faster answers, clearer pricing, and a better deal.</p>
+            </div>
             <div class="hero-quote-wrapper">
                 <h2 class="hero-form-title">Get a Free Quote</h2>
                 <p class="hero-form-subtitle">Fill out the form and we'll respond within 30 minutes</p>
-                <form id="quoteForm" class="hero-quote-form" novalidate>
+                <form id="quoteForm" class="hero-quote-form" action="https://formspree.io/f/xlgoadqg" method="POST" novalidate>
                     <div class="form-row">
                         <div class="form-group">
                             <input type="text" id="name" name="name" required placeholder="Full Name *">
@@ -92,27 +97,17 @@
                             <input type="text" id="delivery" name="delivery" required placeholder="Delivery Location (City, State) *">
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input type="date" id="pickupDate" name="pickupDate" placeholder="Pickup Date">
-                        </div>
-                        <div class="form-group">
-                            <select id="discount" name="discount">
-                                <option value="">Discount (optional)</option>
-                                <option value="military">Military / Veteran (10% off)</option>
-                                <option value="repeat">Repeat Customer (15% off)</option>
-                                <option value="referral">Referral ($100 off)</option>
-                                <option value="firstresponder">First Responder (10% off)</option>
-                            </select>
-                        </div>
-                    </div>
                     <div class="form-group full-width">
                         <textarea id="details" name="details" rows="3" placeholder="Describe your cargo, dimensions, weight..."></textarea>
                     </div>
+                    <input type="hidden" name="_subject" value="New quote request from Globeks Corp website">
                     <button type="submit" class="btn btn-primary btn-lg btn-full">
                         <i class="fas fa-paper-plane"></i> Submit Quote Request
                     </button>
                 </form>
+                <div id="formError" class="form-error" style="display:none;">
+                    We couldn't send your request right now. Please try again in a moment or call us at <a href="tel:+17084463883">(708) 446-3883</a>.
+                </div>
                 <div id="formSuccess" class="form-success" style="display:none;">
                     <i class="fas fa-check-circle"></i>
                     <h3>Quote Request Received!</h3>
