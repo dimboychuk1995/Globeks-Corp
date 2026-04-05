@@ -562,11 +562,11 @@ button {
     gap: 16px;
 }
 
-.photos-grid .photo-slot:nth-child(n+11) {
+.photos-grid .photo-slot:nth-child(n+5) {
     display: none;
 }
 
-.photos-grid.expanded .photo-slot:nth-child(n+11) {
+.photos-grid.expanded .photo-slot:nth-child(n+5) {
     display: block;
 }
 
