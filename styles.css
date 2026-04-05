@@ -194,6 +194,26 @@ button {
     background: rgba(126, 200, 227, 0.15);
 }
 
+.nav-call {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    color: var(--white) !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.nav-call:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--sky-blue);
+    transform: translateY(-1px);
+}
+
 .nav-cta {
     display: inline-flex;
     align-items: center;
@@ -540,13 +560,14 @@ button {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
-    max-height: calc(240px * 2 + 16px + 10px);
-    overflow: hidden;
-    transition: max-height 0.6s ease;
 }
 
-.photos-grid.expanded {
-    max-height: 5000px;
+.photos-grid .photo-slot:nth-child(n+11) {
+    display: none;
+}
+
+.photos-grid.expanded .photo-slot:nth-child(n+11) {
+    display: block;
 }
 
 .photos-load-more {
@@ -1635,6 +1656,10 @@ button {
         padding: 12px 16px;
     }
 
+    .nav-call {
+        display: none;
+    }
+
     .nav-cta {
         display: none;
     }
@@ -1686,7 +1711,6 @@ button {
 
     .photos-grid {
         grid-template-columns: repeat(2, 1fr);
-        max-height: calc(240px * 4 + 16px * 3 + 10px);
     }
 
     .coverage-content {
@@ -1759,7 +1783,6 @@ button {
 
     .photos-grid {
         grid-template-columns: 1fr 1fr;
-        max-height: calc(240px * 4 + 16px * 3 + 10px);
     }
 
     .discounts-grid {
