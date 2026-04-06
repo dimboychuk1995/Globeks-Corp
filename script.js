@@ -288,18 +288,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ---- Photos Load More ----
+    // ---- Photos Load More (4 at a time) ----
     const loadMoreBtn = document.getElementById('loadMorePhotos');
     const photosGrid = document.getElementById('photosGrid');
     if (loadMoreBtn && photosGrid) {
-        loadMoreBtn.addEventListener('click', () => {
-            photosGrid.classList.toggle('expanded');
-            if (photosGrid.classList.contains('expanded')) {
+        const allSlots = photosGrid.querySelectorAll('.photo-slot');
+        const INITIAL = 4;
+        const STEP = 4;
+        let visibleCount = INITIAL;
+
+        // Hide all beyond initial 4
+        allSlots.forEach((slot, i) => {
+            if (i >= INITIAL) slot.classList.add('photo-hidden');
+        });
+
+        function updateButton() {
+            if (visibleCount >= allSlots.length) {
                 loadMoreBtn.innerHTML = '<i class="fas fa-chevron-up"></i> Show Less';
             } else {
-                loadMoreBtn.innerHTML = '<i class="fas fa-images"></i> Show All Photos';
-                photosGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                loadMoreBtn.innerHTML = '<i class="fas fa-images"></i> Show More';
             }
+        }
+        updateButton();
+
+        loadMoreBtn.addEventListener('click', () => {
+            if (visibleCount >= allSlots.length) {
+                // Collapse back to initial
+                allSlots.forEach((slot, i) => {
+                    if (i >= INITIAL) slot.classList.add('photo-hidden');
+                });
+                visibleCount = INITIAL;
+                photosGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                // Show next 4
+                const newVisible = Math.min(visibleCount + STEP, allSlots.length);
+                for (let i = visibleCount; i < newVisible; i++) {
+                    allSlots[i].classList.remove('photo-hidden');
+                }
+                visibleCount = newVisible;
+            }
+            updateButton();
         });
     }
 
